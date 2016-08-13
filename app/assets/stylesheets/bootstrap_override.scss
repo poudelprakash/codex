@@ -5,6 +5,8 @@ $dark-grey: #c8c8c8;
 $medium-grey: #dddddd;
 $light-grey: #f3f3f3;
 
+$russian-violet: #3C1B43;
+
 $success-green: #BFE28C;
 $error-red: #D47677;
 
@@ -24,11 +26,11 @@ $brand-bg-color: $brand-white;
 $navbar-default-bg: $almost-black;
 $navbar-default-color: $medium-grey;
 $navbar-default-link-color: $navbar-default-color;
-$navbar-default-link-active-color: $orange;
-$navbar-default-link-hover-color: $orange;
+$navbar-default-link-active-color: $medium-grey;
+$navbar-default-link-hover-color: $medium-grey;
 
 // Globals
-$body-bg: $dark-grey;
+$body-bg: white;
 $grid-gutter-width: 40px !default;
 $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
@@ -44,11 +46,6 @@ $panel-default-border: none;
 $panel-body-padding: 10px;
 $panel-footer-padding: 10px;
 
-// Tables
-$table-bg: #eee;
-$table-bg-accent: #fff;
-$table-border-color: $orange;
-$table-cell-padding: 8px;
 
 // Fonts
 $font-family-sans-serif: arial, serif;
@@ -67,43 +64,3 @@ $state-danger-bg: $error-red;
 
 // Buttons
 $btn-default-bg: $medium-grey;
-
-// Mixin
-@mixin transition($transition) {
-    -moz-transition:    $transition ease-in;
-    -o-transition:      $transition ease-in;
-    -webkit-transition: $transition ease-in;
-    -ms-transition:   $transition ease-in;
-    transition:         $transition ease-in;
-}
-@mixin inline-block() {
-  display:-moz-inline-stack;
-  display:inline-block;
-  zoom:1;
-  *display:inline;
-}
-@mixin flex() {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
-
-@mixin transform($transforms) {
-	   -moz-transform: $transforms;
-	     -o-transform: $transforms;
-	    -ms-transform: $transforms;
-	-webkit-transform: $transforms;
-          transform: $transforms;
-}
-
-@mixin scale($scale) {
-	 @include transform(scale($scale));
-}
