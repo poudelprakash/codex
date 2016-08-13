@@ -1,0 +1,9 @@
+<div class="jumbotron">
+  <h1><%= @language.name %></h1>
+</div>
+
+<div class="container">
+  <div>
+    <%= render partial: 'problems/problem', collection: @problems %>
+  </div>
+</div>
