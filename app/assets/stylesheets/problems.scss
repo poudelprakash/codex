@@ -1,3 +1,136 @@
-// Place all the styles related to the problems controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.u-centerAlignChildren {
+  text-align: center;
+}
+
+.u-noMargin {
+  margin: 0;
+}
+
+.u-textEllipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.u-textWhite {
+  color: white;
+}
+
+.u-removeBorderRadius {
+  border-radius: 0 !important;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+// Exercise on Left Side
+#language-exercise {
+  .exercise-header {
+    background-color: #333333;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .exercise-descriptionHeader {
+    margin: 0 -20px;
+    background-color: #f2f2f2;
+    .exercise-previous, .exercise-next {
+      font-size: 200%;
+      line-height: 74px;
+    }
+    .exercise-title {
+      background-color: #f2f2f2;
+      height: 74px;
+      h4 {
+        line-height: 74px;
+      }
+    }
+  }
+
+  .exercise-descriptionBody {
+    overflow: auto;
+    padding-right: 12px;
+  }
+}
+
+// Results Wrapper
+#language-exercise {
+  .resultsWrapper {
+    display: block !important;
+    margin-top: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: -490px;
+    margin-bottom: 400px;
+    z-index: 1000000;
+
+    &.ng-hide {
+      margin-bottom: 0;
+    }
+
+    .results-header {
+      display: flex;
+      height: 55px;
+      max-height: 55px;
+      width: 100%;
+
+      .results-header-text {
+        // transition:
+        background-color: #f26133;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        flex-grow: 14;
+        height: 55px;
+        padding: 20px;
+      }
+      button.results-runButton {
+        flex-grow: 1;
+        height: 55px;
+        outline: 0;
+      }
+    }
+    .results {
+      background-color: #f2f2f2;
+      display: inline-block;
+      height: 400px;
+      overflow: auto;
+      padding: 10px 5px;
+      width: 100%;
+    }
+  }
+}
+
+#language-exercise {
+  .tab-content {
+    height: 100vh;
+    margin-top: -3px;
+
+    #editor {
+      height: 100%;
+      margin-top: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+
+      .aceEditor {
+        height: 100%;
+      }
+    }
+  }
+}
+
+#exerciseSpecsTab, #exerciseEditorTab {
+  float: right;
+}
+
+
+
+
+
+.tab-content > .active {
+  display: block;
+}

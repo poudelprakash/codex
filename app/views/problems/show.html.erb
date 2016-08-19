@@ -1,1 +1,120 @@
-<h1>Problem will be a SPA angular</h1>
+<div id="language-exercise" ng-controller="ExerciseController as exercise">
+
+  <div class="exercise-header container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-xs-6">
+        <div class="exercise-headerLinks">
+          <a href='#'>Return to Ruby Problems (will be dynamic)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row exercise-descriptionHeader">
+          <div class="u-centerAlignChildren u-noMargin">
+            <h3>Syntax</h3>
+          </div>
+          <div class="col-lg-2 exercise-previous u-centerAlignChildren">
+            <a href="#" class="inactive-next-link">
+              <span class="fa fa-chevron-left"></span>
+            </a>
+          </div>
+          <div class="col-lg-7 exercise-title u-centerAlignChildren">
+            <h4 class="u-noMargin u-textEllipsis"><%= @problem.name %></h4>
+          </div>
+          <div class="col-lg-3 exercise-next u-centerAlignChildren">
+            <a href="#" class="inactive-next-link">
+              <span class="fa fa-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="exercise-descriptionBody u-paddingVertical" style="max-height: 502px; height: 502px;">
+          <!-- Everything Here will be the markdown description -->
+          <%= markdown(@problem.description) %>
+        </div>
+
+      </div>
+      <!-- end of col-md-3 -->
+
+      <div class="col-md-9 exercise-editor" style="margin-top: -41px;">
+        <ul class="nav nav-tabs">
+          <li id="exerciseSpecsTab">
+            <a data-toggle="tab" href="#specs" class="tab-specs">Tests</a>
+          </li>
+          <li id="exerciseEditorTab">
+            <a data-toggle="tab" href="#editor" class="tab-editor">Editor</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div id="editor" class="tab-pane fade in active">
+            <div id="aceEditor" class="aceEditor" ui-ace="{
+                        theme: 'monokai',
+                        mode: 'ruby',
+                        onLoad: aceLoaded,
+                        rendererOptions: {
+                          fontSize: 16
+                        },
+                        advanced: {
+                          tabSize: 2
+                        }
+                      }" ng-model="exercise.code"></div>
+          <!-- Ace Editor will be going in here -->
+          </div>
+          <div class="resultsWrapper" ng-show="exercise.resultsVisible">
+          <div class="results-header">
+            <div class="results-header-text u-noMargin u-textWhite u-textEllipsis" ng-click="exercise.toggleResults()">
+              <span class="results-cta">
+
+                <span class="fa fa-chevron-circle-up" ng-hide="exercise.resultsVisible"></span>
+                <span class="fa fa-chevron-circle-down" ng-show="exercise.resultsVisible"></span>
+                Results
+                <span class="results-nextExercise"></span>
+              </span>
+            </div>
+            <button class="btn btn-lg btn-primary u-removeBorderRadius results-runButton"  data-toggle="tooltip" data-placement="top" title="Ctrl + ⏎ (Return)">
+              <!-- <span class="results-loadingIcon fa fa-spinner fa-spin fa-2x fa-fw u-textWhite"></span> -->
+              <div>
+                <span class="fa fa-fw fa-play-circle"></span>
+                <span>Run</span>
+              </div>
+              <span>Connecting...</span>
+            </button>
+          </div>
+          <div class="results">
+            <div class="col-sm-12">
+
+              <div ng-show="resultsDetails">
+
+              </div>
+
+            </div>
+            <div class="col-sm-6 result-outputs">
+              <h5>Output</h5>
+
+              <div class="results-noOutput" ng-hide="stdout">
+
+                <p>Your code didn’t print anything yet, but that’s OK! To debug your code you can use <code>puts</code> to display your output here. For example:</p>
+                <pre><code class="language-ruby">puts fizzbuzz</code></pre>
+                <p>You don’t have to print your code to pass this exercise, but printing your code is useful for debugging.</p>
+             </div>
+            </div>
+            <div class="col-sm-6 result-outputs">
+              <h5>Tests</h5>
+              <div class="results-specs">
+                <!-- ngRepeat: spec in specs -->
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- end of ExerciseController -->

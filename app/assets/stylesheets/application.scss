@@ -14,6 +14,7 @@
 // custom
 @import "devise_forms";
 @import "languages";
+@import "problems";
 
 // Template Base
 
@@ -30,6 +31,7 @@ body {
   //background: $brand-bg-color;
   height: 100%;
   position: relative;
+  overflow: hidden;
 
 }
 a {
@@ -144,13 +146,8 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9999;
 }
 
-.navbar-brand {
-  float: left;
-  display: block;
-  font-size: 30px;
-  font-weight: 700;
-  padding-left: 20px;
-  margin-bottom: 1px;
+.navbar-static-top {
+  margin-top: -50px;
 }
 
 .jumbotron {

@@ -12,13 +12,17 @@ Language.create!(
 )
 language = Language.first
 
-4.times do |i|
-  Problem.create!(
-    language: language,
-    name: "Fizzbuzz part#{i}",
-    description: 'This will be markdown code'
-  )
-end
+
+Problem.create!(
+  language: language,
+  name: "Fizz Buzz",
+  description: "Return an array containing the numbers from 1 to N, where N is the parametered value. N will never be less than 1.\n
+Replace certain values however if any of the following conditions are met:
+* If the value is a multiple of 3: use the value 'Fizz' instead
+* If the value is a multiple of 5: use the value 'Buzz' instead
+* If the value is a multiple of 3 & 5: use the value 'FizzBuzz' instead"
+)
+
 
 # Output
 # For output, just add class that you seeded to the models Array
