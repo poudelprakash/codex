@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20160813035342) do
     t.integer  "language_id"
     t.string   "name"
     t.string   "description"
+    t.text     "main_body"
+    t.text     "test_body"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

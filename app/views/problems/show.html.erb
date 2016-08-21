@@ -37,24 +37,25 @@
           <%= markdown(@problem.description) %>
         </div>
 
+
       </div>
       <!-- end of col-md-3 -->
 
       <div class="col-md-9 exercise-editor" style="margin-top: -41px;">
         <ul class="nav nav-tabs">
           <li id="exerciseSpecsTab">
-            <a data-toggle="tab" href="#specs" class="tab-specs">Tests</a>
+            <a data-target="#specs" data-toggle="tab" class="tab-specs">Tests</a>
           </li>
           <li id="exerciseEditorTab">
-            <a data-toggle="tab" href="#editor" class="tab-editor">Editor</a>
+            <a data-target="#editor" data-toggle="tab" class="tab-editor">Editor</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div id="editor" class="tab-pane fade in active">
+          <div id="editor" class="tab-pane active">
             <div id="aceEditor" class="aceEditor" ui-ace="{
                         theme: 'monokai',
                         mode: 'ruby',
-                        onLoad: aceLoaded,
+                        onLoad: exercise.aceLoaded,
                         rendererOptions: {
                           fontSize: 16
                         },
@@ -62,8 +63,22 @@
                           tabSize: 2
                         }
                       }" ng-model="exercise.code"></div>
-          <!-- Ace Editor will be going in here -->
           </div>
+          <div id="specs" class="tab-pane exercise-specs">
+            <div id="aceSpecs" class="aceEditor" ui-ace="{
+                        theme: 'monokai',
+                        mode: 'ruby',
+                        onLoad: exercise.specsLoaded,
+                        rendererOptions: {
+                          fontSize: 16
+                        },
+                        advanced: {
+                          tabSize: 2
+                        }
+                      }" ng-model="exercise.tests"></div>
+          </div>
+
+
           <div class="resultsWrapper" ng-show="exercise.resultsVisible">
           <div class="results-header">
             <div class="results-header-text u-noMargin u-textWhite u-textEllipsis" ng-click="exercise.toggleResults()">

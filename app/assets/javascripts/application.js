@@ -13,6 +13,7 @@
 // require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require angular
 //= require angular-rails-templates
 //= require ace-rails-ap
@@ -37,6 +38,10 @@ window.codex = angular.module('Codex', ['ui.ace', 'templates']);
 $(document).ready(function() {
     var windowHeight = $(window).innerHeight();
     $('#language-exercise .tab-content').css('max-height', windowHeight - 180);
+
+    $('#exerciseSpecsTab a').tab('show');
+    $('#exerciseEditorTab a').tab('show');
+
 });
 
 
