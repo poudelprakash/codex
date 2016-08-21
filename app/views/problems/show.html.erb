@@ -4,7 +4,9 @@
     <div class="row">
       <div class="col-sm-3 col-xs-6">
         <div class="exercise-headerLinks">
-          <a href='#'>Return to Ruby Problems (will be dynamic)</a>
+          <%= link_to  language_path(@problem.language) do %>
+            <i class="fa fa-chevron-left"> <%= "Return to #{@problem.language.name} Problems" %></i>
+          <% end %>
         </div>
       </div>
     </div>
@@ -15,7 +17,7 @@
       <div class="col-md-3">
         <div class="row exercise-descriptionHeader">
           <div class="u-centerAlignChildren u-noMargin">
-            <h3>Syntax</h3>
+            <h3><%= "#{@problem.language.name} Problem" %></h3>
           </div>
           <div class="col-lg-2 exercise-previous u-centerAlignChildren">
             <a href="#" class="inactive-next-link">
@@ -54,7 +56,7 @@
           <div id="editor" class="tab-pane active">
             <div id="aceEditor" class="aceEditor" ui-ace="{
                         theme: 'monokai',
-                        mode: 'ruby',
+                        mode: exercise.language,
                         onLoad: exercise.aceLoaded,
                         rendererOptions: {
                           fontSize: 16
@@ -67,7 +69,7 @@
           <div id="specs" class="tab-pane exercise-specs">
             <div id="aceSpecs" class="aceEditor" ui-ace="{
                         theme: 'monokai',
-                        mode: 'ruby',
+                        mode: exercise.language,
                         onLoad: exercise.specsLoaded,
                         rendererOptions: {
                           fontSize: 16
@@ -90,13 +92,12 @@
                 <span class="results-nextExercise"></span>
               </span>
             </div>
-            <button class="btn btn-lg btn-primary u-removeBorderRadius results-runButton"  data-toggle="tooltip" data-placement="top" title="Ctrl + ⏎ (Return)">
-              <!-- <span class="results-loadingIcon fa fa-spinner fa-spin fa-2x fa-fw u-textWhite"></span> -->
-              <div>
+            <button class="btn btn-lg btn-primary u-removeBorderRadius results-runButton" ng-click="exercise.run()">
+              <span class="results-loadingIcon fa fa-spinner fa-spin fa-2x fa-fw u-textWhite" ng-show="exercise.showSpinner"></span>
+              <div ng-show="!exercise.showSpinner">
                 <span class="fa fa-fw fa-play-circle"></span>
                 <span>Run</span>
               </div>
-              <span>Connecting...</span>
             </button>
           </div>
           <div class="results">

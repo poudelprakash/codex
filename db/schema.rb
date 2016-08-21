@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160813035342) do
     t.string   "description"
     t.text     "main_body"
     t.text     "test_body"
+    t.text     "test_final"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
