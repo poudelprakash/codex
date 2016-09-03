@@ -4,6 +4,7 @@ class CreateProgresses < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.references :problem, index: true, foreign_key: true
 
+      t.text :answer
       t.boolean :completed_at
 
       t.timestamps null: false

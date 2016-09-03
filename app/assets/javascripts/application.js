@@ -11,6 +11,7 @@
 // about supported directives.
 //
 // require turbolinks
+//= require fetch
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets

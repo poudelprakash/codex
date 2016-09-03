@@ -69,3 +69,5 @@ group :development, :test do
   gem 'rspec-rails', '~>3.0' # Specs > Tests
 
 end
+
+gem 'rails-assets-fetch', source: 'https://rails-assets.org'

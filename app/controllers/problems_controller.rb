@@ -6,5 +6,6 @@ class ProblemsController < ApplicationController
 
     gon.problem = @problem.as_json
     gon.language = @problem.language.name.downcase
+    gon.user = current_user
   end
 end

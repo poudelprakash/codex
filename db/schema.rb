@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160813035342) do
   create_table "progresses", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "problem_id"
+    t.text     "answer"
     t.boolean  "completed_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

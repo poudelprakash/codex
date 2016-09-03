@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-sm-3 col-xs-6">
         <div class="exercise-headerLinks">
-          <%= link_to  language_path(@problem.language) do %>
+          <%= link_to language_path(@problem.language) do %>
             <i class="fa fa-chevron-left"> <%= "Return to #{@problem.language.name} Problems" %></i>
           <% end %>
         </div>
@@ -104,7 +104,6 @@
             <div class="col-sm-12">
 
               <div ng-show="resultsDetails">
-
               </div>
 
             </div>
@@ -112,16 +111,27 @@
               <h5>Output</h5>
 
               <div class="results-noOutput" ng-hide="stdout">
-
                 <p>Your code didn’t print anything yet, but that’s OK! To debug your code you can use <code>puts</code> to display your output here. For example:</p>
                 <pre><code class="language-ruby">puts fizzbuzz</code></pre>
                 <p>You don’t have to print your code to pass this exercise, but printing your code is useful for debugging.</p>
              </div>
             </div>
             <div class="col-sm-6 result-outputs">
-              <h5>Tests</h5>
+              <h5>Tests: {{ exercise.summary.summary_line}} </h5>
+              {{ exercise.errorResults }}
               <div class="results-specs">
-                <!-- ngRepeat: spec in specs -->
+                <!-- ngRepeat: spec in exercise.results -->
+                <p class="spec" ng-class="" ng-repeat="spec in exercise.results">
+                  <span>{{ $index + 1 }}) {{ spec.full_description }} {{ spec.status }}</span>
+                  <br />
+                  <span>{{ spec.exception.class }}</span>
+                  <br />
+                  <span>{{ spec.exception.message.expected }}</span>
+                  <br />
+                  <span>{{ spec.exception.message.got }}</span>
+                  <br />
+                  <span>{{ spec.exception.message.compared }}</span>
+                </p>
               </div>
             </div>
           </div>
