@@ -5,8 +5,10 @@ class CreateProblems < ActiveRecord::Migration
 
       t.string :name
       t.string :description
+      t.text :main_body
       t.text :test_body
-      
+      t.text :test_final
+
       t.timestamps null: false
     end
   end

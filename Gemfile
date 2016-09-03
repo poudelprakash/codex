@@ -22,14 +22,18 @@ gem 'figaro'
 gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
-gem 'lodash-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'kramdown', '~> 1.11', '>= 1.11.1'
 
 # FrontEnd
 gem 'autoprefixer-rails'
+gem 'angularjs-rails' # angular wrapper
+gem 'angular-rails-templates' # angular templates
+gem 'gon' # rails variables in javascript
+gem 'ace-rails-ap' # ajax cloud9 editor
 
 gem 'rubocop', '~> 0.41.2', require: false
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -65,3 +69,5 @@ group :development, :test do
   gem 'rspec-rails', '~>3.0' # Specs > Tests
 
 end
+
+gem 'rails-assets-fetch', source: 'https://rails-assets.org'

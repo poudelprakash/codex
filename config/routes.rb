@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :languages, only: [:index, :show] do
     resources :problems, only: [:show]
   end
+  resources :progresses, only: [:create], defaults: { format: :json }
 
 end
