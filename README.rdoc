@@ -4,3 +4,6 @@
 ```
 https://github.com/heroku/heroku-accounts
 ```
+
+Must precompile assets before pushing to heroku:
+`RAILS_ENV=production bundle exec rake assets:precompile`
