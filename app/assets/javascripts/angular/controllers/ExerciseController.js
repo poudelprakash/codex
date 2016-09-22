@@ -39,7 +39,7 @@
     ctrl.run = function() {
       ctrl.showSpinner = true;
 
-      fetch('http://45.55.202.128/request', {
+      fetch('//45.55.202.128/request', {
         method: 'POST',
         mode: 'cors',
         headers: {
